@@ -3,13 +3,14 @@ const mysql = require('mysql2/promise');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const path = require('path');
-const port = 2001;
+const path = require('path'); 
 const dotenv=require('dotenv')
 
 const app = express();
 
 dotenv.config()
+
+const PORT = process.env.PORT || 2001
 
 app.use(cors(
   {
@@ -50,7 +51,7 @@ const uploadExcel = multer({storage: storageExcel});
 
 const db = mysql.createPool({
     host:process.env.DB_HOST,
-    port:process.env.DB_PORT,
+    port:process.env.DB_PORT || 3306,
     user:process.env.DB_USER,
     password:process.env.DB_PASSWORD,
     database: process.env.DB_NAME,

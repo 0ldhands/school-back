@@ -408,6 +408,6 @@ app.get('/students/:classId', async (req, res) => {
     }
   });
   
-app.listen(port, () => {
-    console.log(`Server is running on ${port}...`);
+app.listen(PORT, () => {
+    console.log(`Server is running on ${PORT}...`);
 });

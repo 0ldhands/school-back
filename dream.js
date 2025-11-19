@@ -11,7 +11,13 @@ const app = express();
 
 dotenv.config()
 
-app.use(cors());
+app.use(cors(
+  {
+    origin:'https://dream-school-mng.netlify.app',
+    methods:['GET','PUT','POST','DELETE'],
+    credentials:true
+  }
+ ));
 app.use(bodyParser.json());
 
 app.use('./uploads', express.static(path.join(__dirname, 'uploads')),(err)=>{
